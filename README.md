@@ -1,4 +1,4 @@
-# NGSIM_Record_Adjacent_Vehicle
+# NGSIM Record Adjacent Vehicles
 This program will record data of vehicles that are adjacent to and in front the ego vehicle.
 <br />
 These are conditions where we do not record the vehicle:
