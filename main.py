@@ -59,7 +59,7 @@ def find_relationship(file):
             front_vehicle_velocity = front_vehicle["v_Vel"].item()
             front_vehicle_acceleration = front_vehicle["v_Acc"].item()
 
-        # left-most lane. There will be no vehicles on the right of you.
+        # left-most lane. There will be no vehicles on the left of the ego vehicle.
         if current_lane != 1:
             left_vehicle = detect_vehicles.sense_vehicle_on_left(current_lane, i, front_vehicle_y_position, file)
 
@@ -140,7 +140,7 @@ def find_relationship(file):
                     left_vehicle3_velocity = left_vehicle["v_Vel"][left_vehicle.iloc[2].name]
                     left_vehicle3_acceleration = left_vehicle["v_Acc"][left_vehicle.iloc[2].name]
 
-        # right-most lane. There will be no vehicles on the right of you.
+        # right-most lane. There will be no vehicles on the right of the ego vehicle.
         if current_lane != 7:
             right_vehicle = detect_vehicles.sense_vehicle_on_right(current_lane, i, front_vehicle_y_position, file)
 
