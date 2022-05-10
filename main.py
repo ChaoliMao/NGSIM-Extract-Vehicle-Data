@@ -11,31 +11,37 @@ def find_relationship(file):
     left_vehicle1_y_position = 0
     left_vehicle1_velocity = 0
     left_vehicle1_acceleration = 0
+    left_vehicle1_lane = 0
     left_vehicle2_class = 0
     left_vehicle2_x_position = 0
     left_vehicle2_y_position = 0
     left_vehicle2_velocity = 0
     left_vehicle2_acceleration = 0
+    left_vehicle2_lane = 0
     left_vehicle3_class = 0
     left_vehicle3_x_position = 0
     left_vehicle3_y_position = 0
     left_vehicle3_velocity = 0
     left_vehicle3_acceleration = 0
+    left_vehicle3_lane = 0
     right_vehicle1_class = 0
     right_vehicle1_x_position = 0
     right_vehicle1_y_position = 0
     right_vehicle1_velocity = 0
     right_vehicle1_acceleration = 0
+    right_vehicle1_lane = 0
     right_vehicle2_class = 0
     right_vehicle2_x_position = 0
     right_vehicle2_y_position = 0
     right_vehicle2_velocity = 0
     right_vehicle2_acceleration = 0
+    right_vehicle2_lane = 0
     right_vehicle3_class = 0
     right_vehicle3_x_position = 0
     right_vehicle3_y_position = 0
     right_vehicle3_velocity = 0
     right_vehicle3_acceleration = 0
+    right_vehicle3_lane = 0
     data = []
 
     for i in range(len(file)):
@@ -70,36 +76,44 @@ def find_relationship(file):
             left_vehicle1_y_position = 0
             left_vehicle1_velocity = 0
             left_vehicle1_acceleration = 0
+            left_vehicle1_lane = 0
 
             left_vehicle2_class = 0
             left_vehicle2_x_position = 0
             left_vehicle2_y_position = 0
             left_vehicle2_velocity = 0
             left_vehicle2_acceleration = 0
+            left_vehicle2_lane = 0
 
             left_vehicle3_class = 0
             left_vehicle3_x_position = 0
             left_vehicle3_y_position = 0
             left_vehicle3_velocity = 0
             left_vehicle3_acceleration = 0
+            left_vehicle3_lane = 0
+
         elif len(left_vehicle) == 1:  # one vehicle on the left
             left_vehicle1_class = left_vehicle["v_Class"].item()
             left_vehicle1_x_position = left_vehicle["Local_X"].item()
             left_vehicle1_y_position = left_vehicle["Local_Y"].item()
             left_vehicle1_velocity = left_vehicle["v_Vel"].item()
             left_vehicle1_acceleration = left_vehicle["v_Acc"].item()
+            left_vehicle1_lane = left_vehicle["Lane_ID"].item()
 
             left_vehicle2_class = 0
             left_vehicle2_x_position = 0
             left_vehicle2_y_position = 0
             left_vehicle2_velocity = 0
             left_vehicle2_acceleration = 0
+            left_vehicle2_lane = 0
 
             left_vehicle3_class = 0
             left_vehicle3_x_position = 0
             left_vehicle3_y_position = 0
             left_vehicle3_velocity = 0
             left_vehicle3_acceleration = 0
+            left_vehicle3_lane = 0
+
         else:  # more than one vehicle on the left
             for j in range(0, len(left_vehicle)):
                 if len(left_vehicle) == 2:  # two vehicles on the left
@@ -108,18 +122,21 @@ def find_relationship(file):
                     left_vehicle1_y_position = left_vehicle["Local_Y"][left_vehicle.iloc[0].name]
                     left_vehicle1_velocity = left_vehicle["v_Vel"][left_vehicle.iloc[0].name]
                     left_vehicle1_acceleration = left_vehicle["v_Acc"][left_vehicle.iloc[0].name]
+                    left_vehicle1_lane = left_vehicle["Lane_ID"][left_vehicle.iloc[0].name]
 
                     left_vehicle2_class = left_vehicle["v_Class"][left_vehicle.iloc[1].name]
                     left_vehicle2_x_position = left_vehicle["Local_X"][left_vehicle.iloc[1].name]
                     left_vehicle2_y_position = left_vehicle["Local_Y"][left_vehicle.iloc[1].name]
                     left_vehicle2_velocity = left_vehicle["v_Vel"][left_vehicle.iloc[1].name]
                     left_vehicle2_acceleration = left_vehicle["v_Acc"][left_vehicle.iloc[1].name]
+                    left_vehicle2_lane = left_vehicle["Lane_ID"][left_vehicle.iloc[1].name]
 
                     left_vehicle3_class = 0
                     left_vehicle3_x_position = 0
                     left_vehicle3_y_position = 0
                     left_vehicle3_velocity = 0
                     left_vehicle3_acceleration = 0
+                    left_vehicle3_lane = 0
 
                 elif len(left_vehicle) == 3:  # three vehicles on the left
                     left_vehicle1_class = left_vehicle["v_Class"][left_vehicle.iloc[0].name]
@@ -127,18 +144,21 @@ def find_relationship(file):
                     left_vehicle1_y_position = left_vehicle["Local_Y"][left_vehicle.iloc[0].name]
                     left_vehicle1_velocity = left_vehicle["v_Vel"][left_vehicle.iloc[0].name]
                     left_vehicle1_acceleration = left_vehicle["v_Acc"][left_vehicle.iloc[0].name]
+                    left_vehicle1_lane = left_vehicle["Lane_ID"][left_vehicle.iloc[0].name]
 
                     left_vehicle2_class = left_vehicle["v_Class"][left_vehicle.iloc[1].name]
                     left_vehicle2_x_position = left_vehicle["Local_X"][left_vehicle.iloc[1].name]
                     left_vehicle2_y_position = left_vehicle["Local_Y"][left_vehicle.iloc[1].name]
                     left_vehicle2_velocity = left_vehicle["v_Vel"][left_vehicle.iloc[1].name]
                     left_vehicle2_acceleration = left_vehicle["v_Acc"][left_vehicle.iloc[1].name]
+                    left_vehicle2_lane = left_vehicle["Lane_ID"][left_vehicle.iloc[1].name]
 
                     left_vehicle3_class = left_vehicle["v_Class"][left_vehicle.iloc[2].name]
                     left_vehicle3_x_position = left_vehicle["Local_X"][left_vehicle.iloc[2].name]
                     left_vehicle3_y_position = left_vehicle["Local_Y"][left_vehicle.iloc[2].name]
                     left_vehicle3_velocity = left_vehicle["v_Vel"][left_vehicle.iloc[2].name]
                     left_vehicle3_acceleration = left_vehicle["v_Acc"][left_vehicle.iloc[2].name]
+                    left_vehicle3_lane = left_vehicle["Lane_ID"][left_vehicle.iloc[2].name]
 
         # right-most lane. There will be no vehicles on the right of the ego vehicle.
         if current_lane != 7:
@@ -151,36 +171,44 @@ def find_relationship(file):
             right_vehicle1_y_position = 0
             right_vehicle1_velocity = 0
             right_vehicle1_acceleration = 0
+            right_vehicle1_lane = 0
 
             right_vehicle2_class = 0
             right_vehicle2_x_position = 0
             right_vehicle2_y_position = 0
             right_vehicle2_velocity = 0
             right_vehicle2_acceleration = 0
+            right_vehicle2_lane = 0
 
             right_vehicle3_class = 0
             right_vehicle3_x_position = 0
             right_vehicle3_y_position = 0
             right_vehicle3_velocity = 0
             right_vehicle3_acceleration = 0
+            right_vehicle3_lane = 0
+
         elif len(right_vehicle) == 1:   # one vehicle on the right
             right_vehicle1_class = right_vehicle["v_Class"].item()
             right_vehicle1_x_position = right_vehicle["Local_X"].item()
             right_vehicle1_y_position = right_vehicle["Local_Y"].item()
             right_vehicle1_velocity = right_vehicle["v_Vel"].item()
             right_vehicle1_acceleration = right_vehicle["v_Acc"].item()
+            right_vehicle1_lane = right_vehicle["Lane_ID"].item()
 
             right_vehicle2_class = 0
             right_vehicle2_x_position = 0
             right_vehicle2_y_position = 0
             right_vehicle2_velocity = 0
             right_vehicle2_acceleration = 0
+            right_vehicle2_lane = 0
 
             right_vehicle3_class = 0
             right_vehicle3_x_position = 0
             right_vehicle3_y_position = 0
             right_vehicle3_velocity = 0
             right_vehicle3_acceleration = 0
+            right_vehicle3_lane = 0
+
         else:   # more than one vehicle on the right
             for j in range(0, len(right_vehicle)):
                 if len(right_vehicle) == 2:     # two vehicles on the right
@@ -189,18 +217,21 @@ def find_relationship(file):
                     right_vehicle1_y_position = right_vehicle["Local_Y"][right_vehicle.iloc[0].name]
                     right_vehicle1_velocity = right_vehicle["v_Vel"][right_vehicle.iloc[0].name]
                     right_vehicle1_acceleration = right_vehicle["v_Acc"][right_vehicle.iloc[0].name]
+                    right_vehicle1_lane = right_vehicle["Lane_ID"][right_vehicle.iloc[0].name]
 
                     right_vehicle2_class = right_vehicle["v_Class"][right_vehicle.iloc[1].name]
                     right_vehicle2_x_position = right_vehicle["Local_X"][right_vehicle.iloc[1].name]
                     right_vehicle2_y_position = right_vehicle["Local_Y"][right_vehicle.iloc[1].name]
                     right_vehicle2_velocity = right_vehicle["v_Vel"][right_vehicle.iloc[1].name]
                     right_vehicle2_acceleration = right_vehicle["v_Acc"][right_vehicle.iloc[1].name]
+                    right_vehicle2_lane = right_vehicle["Lane_ID"][right_vehicle.iloc[1].name]
 
                     right_vehicle3_class = 0
                     right_vehicle3_x_position = 0
                     right_vehicle3_y_position = 0
                     right_vehicle3_velocity = 0
                     right_vehicle3_acceleration = 0
+                    right_vehicle3_lane = 0
 
                 elif len(right_vehicle) == 3:   # three vehicles on the right
                     right_vehicle1_class = right_vehicle["v_Class"][right_vehicle.iloc[0].name]
@@ -208,18 +239,21 @@ def find_relationship(file):
                     right_vehicle1_y_position = right_vehicle["Local_Y"][right_vehicle.iloc[0].name]
                     right_vehicle1_velocity = right_vehicle["v_Vel"][right_vehicle.iloc[0].name]
                     right_vehicle1_acceleration = right_vehicle["v_Acc"][right_vehicle.iloc[0].name]
+                    right_vehicle1_lane = right_vehicle["Lane_ID"][right_vehicle.iloc[0].name]
 
                     right_vehicle2_class = right_vehicle["v_Class"][right_vehicle.iloc[1].name]
                     right_vehicle2_x_position = right_vehicle["Local_X"][right_vehicle.iloc[1].name]
                     right_vehicle2_y_position = right_vehicle["Local_Y"][right_vehicle.iloc[1].name]
                     right_vehicle2_velocity = right_vehicle["v_Vel"][right_vehicle.iloc[1].name]
                     right_vehicle2_acceleration = right_vehicle["v_Acc"][right_vehicle.iloc[1].name]
+                    right_vehicle2_lane = right_vehicle["Lane_ID"][right_vehicle.iloc[1].name]
 
                     right_vehicle3_class = right_vehicle["v_Class"][right_vehicle.iloc[2].name]
                     right_vehicle3_x_position = right_vehicle["Local_X"][right_vehicle.iloc[2].name]
                     right_vehicle3_y_position = right_vehicle["Local_Y"][right_vehicle.iloc[2].name]
                     right_vehicle3_velocity = right_vehicle["v_Vel"][right_vehicle.iloc[2].name]
                     right_vehicle3_acceleration = right_vehicle["v_Acc"][right_vehicle.iloc[2].name]
+                    right_vehicle3_lane = right_vehicle["Lane_ID"][right_vehicle.iloc[2].name]
 
         data.append([
             (file["Vehicle_ID"][i]),
@@ -238,31 +272,37 @@ def find_relationship(file):
             left_vehicle1_y_position,
             left_vehicle1_velocity,
             left_vehicle1_acceleration,
+            left_vehicle1_lane,
             left_vehicle2_class,
             left_vehicle2_x_position,
             left_vehicle2_y_position,
             left_vehicle2_velocity,
             left_vehicle2_acceleration,
+            left_vehicle2_lane,
             left_vehicle3_class,
             left_vehicle3_x_position,
             left_vehicle3_y_position,
             left_vehicle3_velocity,
             left_vehicle3_acceleration,
+            left_vehicle3_lane,
             right_vehicle1_class,
             right_vehicle1_x_position,
             right_vehicle1_y_position,
             right_vehicle1_velocity,
             right_vehicle1_acceleration,
+            right_vehicle1_lane,
             right_vehicle2_class,
             right_vehicle2_x_position,
             right_vehicle2_y_position,
             right_vehicle2_velocity,
             right_vehicle2_acceleration,
+            right_vehicle2_lane,
             right_vehicle3_class,
             right_vehicle3_x_position,
             right_vehicle3_y_position,
             right_vehicle3_velocity,
-            right_vehicle3_acceleration
+            right_vehicle3_acceleration,
+            right_vehicle3_lane,
         ])
 
     return data
