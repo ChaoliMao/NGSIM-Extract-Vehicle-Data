@@ -60,12 +60,14 @@ def find_relationship(file):
 
         # obtain data on the vehicle in front
         if type(front_vehicle) == int:  # there are no vehicles ahead
+            front_vehicle_id = 0
             front_vehicle_class = 0
             front_vehicle_x_position = 0
             front_vehicle_y_position = 0
             front_vehicle_velocity = 0
             front_vehicle_acceleration = 0
         else:   # there is a vehicle ahead
+            front_vehicle_id = front_vehicle["Vehicle_ID"].item()
             front_vehicle_class = front_vehicle["v_Class"].item()
             front_vehicle_x_position = front_vehicle["Local_X"].item()
             front_vehicle_y_position = front_vehicle["Local_Y"].item()
@@ -294,6 +296,8 @@ def find_relationship(file):
             (file["Local_Y"][i]),
             (file["v_Vel"][i]),
             (file["v_Acc"][i]),
+            (file["Lane_ID"][i]),
+            front_vehicle_id,
             front_vehicle_class,
             front_vehicle_x_position,
             front_vehicle_y_position,
