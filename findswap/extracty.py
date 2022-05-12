@@ -1,5 +1,5 @@
 import pandas as pd
-import ObtainY
+import obtainYy
 
 # load the csv file from file location
 i80 = pd.read_csv("i-80_new.csv")
